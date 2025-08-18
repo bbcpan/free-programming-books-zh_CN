@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.1.0">
   <diagram name="第 1 页" id="jdtDRDNVIYTzPWDmrWf7">
-    <mxGraphModel dx="1778" dy="1670" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="0" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3996" dy="2838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="0" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -54,6 +54,19 @@
         </mxCell>
         <mxCell id="eEyu-ZopEJ078TrSKXww-30" value="MO-62-04&lt;div&gt;(80)&lt;/div&gt;&lt;div&gt;交期:08-05&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;fillColor=#D5E8D4;" parent="1" vertex="1">
           <mxGeometry x="710" y="280" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="wQSmuj-4JBgaLNjNI24i-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;curved=1;" edge="1" parent="1" source="eEyu-ZopEJ078TrSKXww-31" target="eEyu-ZopEJ078TrSKXww-57">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="570" />
+              <mxPoint x="930" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wQSmuj-4JBgaLNjNI24i-8" value="DO提交出货一半" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wQSmuj-4JBgaLNjNI24i-7">
+          <mxGeometry x="-0.0405" y="-4" relative="1" as="geometry">
+            <mxPoint x="-4" y="-20" as="offset" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="eEyu-ZopEJ078TrSKXww-31" value="MO-62-02&lt;div&gt;(120)&lt;/div&gt;&lt;div&gt;已排产&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;交期:08-01&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=light-dark(#67AB9F,#190033);movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
           <mxGeometry x="710" y="510" width="100" height="120" as="geometry" />
@@ -227,6 +240,18 @@
         </mxCell>
         <mxCell id="wQSmuj-4JBgaLNjNI24i-2" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;主要风险控制原则&lt;/h1&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;1）对于&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;MO资金池的风险计算排序，【&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;已排产】最高优先级，【排产特批】其次，再到【已锁定未排产】的；【已锁定未排产的】的可以应用不同的排序策略，比如交期排序 / 锁定时间排序 等等，甚至可以给与用户手动指定排序的功能；&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;2）【已排产】/【排产特批】/【已锁定未排产】的生产单行组成一个排好序的队列，按顺序累加所需金额，累加某个MO行后，所需总和少于【OA余额】的生产单，为无风险，否则，为OA余额不足；&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;3）生产单的锁定操作不会被信控中心接口阻断，锁定是业务员指定哪些生产单行需要进入风险计算的，每一次锁定后，需要重新参考#1进行新一轮的排序逻辑，更新【已锁定未排产】的MO行风险类型；&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;4）DO的额度占用，不会被MO的占用情况影响，反过来DO会影响&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;【已锁定未排产】的MO的风险计算结果；DO提交后到核销过程，会占用额度，导致OA余额减少，从而影响MO可排产的额度范围减少；&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="-535" y="-130" width="660" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="wQSmuj-4JBgaLNjNI24i-9" value="" style="group;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="880" y="600" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="wQSmuj-4JBgaLNjNI24i-6" value="" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="wQSmuj-4JBgaLNjNI24i-9">
+          <mxGeometry width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="wQSmuj-4JBgaLNjNI24i-4" value="MO-62-02&lt;div&gt;(120-60=60)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#67AB9F;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="wQSmuj-4JBgaLNjNI24i-9">
+          <mxGeometry width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="wQSmuj-4JBgaLNjNI24i-5" value="MO-62-02&lt;div&gt;60(已出货)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#dae8fc;strokeColor=#6c8ebf;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="wQSmuj-4JBgaLNjNI24i-9">
+          <mxGeometry y="60" width="100" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
